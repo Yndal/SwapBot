@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<swistrack>
+  <components>
+    <component type="InputFileAVI">
+      <enabledinterval value="1"/>
+      <parameter name="File" value="Recordings\2 iteration\3 - Docking\Originals\Converted\161206-204134.avi"/>
+      <parameter name="FlipVertically" value="false"/>
+    </component>
+    <component type="InputFileImage">
+      <enabledinterval value="0"/>
+      <parameter name="File" value="Recordings\Init design\3 - Docking\background_gray.jpg"/>
+    </component>
+    <component type="ConvertToColor">
+      <enabledinterval value="0"/>
+    </component>
+    <component type="ConvertToGray">
+      <enabledinterval value="1"/>
+      <parameter name="Channel" value="0"/>
+      <parameter name="Device" value="0"/>
+    </component>
+    <component type="AdaptiveBackgroundSubtractionGray">
+      <enabledinterval value="0"/>
+      <parameter name="CorrectMean" value="true"/>
+      <parameter name="Mode" value="SubBackgroundImage"/>
+      <parameter name="ResetBackgroundImage" value="false"/>
+      <parameter name="UpdateProportion" value="0.000000"/>
+    </component>
+    <component type="BackgroundSubtractionGray">
+      <enabledinterval value="1"/>
+      <parameter name="BackgroundImage" value="Recordings\2 iteration\3 - Docking\background_grayscale.jpg"/>
+      <parameter name="CorrectMean" value="false"/>
+      <parameter name="Mode" value="SubBackgroundImage"/>
+    </component>
+    <component type="ThresholdGray">
+      <enabledinterval value="1"/>
+      <parameter name="InvertThreshold" value=""/>
+      <parameter name="Threshold" value="93"/>
+    </component>
+    <component type="BinaryDilation">
+      <enabledinterval value="1"/>
+      <parameter name="Iterations" value="0"/>
+    </component>
+    <component type="BinaryErosion">
+      <enabledinterval value="1"/>
+      <parameter name="Iterations" value="0"/>
+    </component>
+    <component type="BinaryDilation">
+      <enabledinterval value="1"/>
+      <parameter name="Iterations" value="0"/>
+    </component>
+    <component type="BinaryMask">
+      <enabledinterval value="1"/>
+      <parameter name="MaskImage" value="Recordings\2 iteration\3 - Docking\mask.jpg"/>
+    </component>
+    <component type="BlobDetectionMinMax">
+      <enabledinterval value="1"/>
+      <parameter name="AreaBool" value="true"/>
+      <parameter name="CompactnessBool" value="false"/>
+      <parameter name="FirstDilate" value=""/>
+      <parameter name="FirstErode" value=""/>
+      <parameter name="MaxArea" value="1100"/>
+      <parameter name="MaxCompactness" value=""/>
+      <parameter name="MaxNumber" value="2"/>
+      <parameter name="MaxOrientation" value=""/>
+      <parameter name="MinArea" value="700"/>
+      <parameter name="MinCompactness" value="0.160000"/>
+      <parameter name="MinOrientation" value=""/>
+      <parameter name="OrientationBool" value=""/>
+      <parameter name="SecondDilate" value=""/>
+    </component>
+    <component type="IDReaderRing">
+      <enabledinterval value="1"/>
+      <parameter name="CodeFile" value="C:\Documents and Settings\Arena\Desktop\swistrack\release\example-thomas\robotlist.xml"/>
+      <parameter name="ObjectListFileName" value="D:\OwnClouds\Yndal\Thesis\SwisTrack\Test\test.xml"/>
+      <parameter name="RingRadiusInner" value="13.000000"/>
+      <parameter name="RingRadiusInsser" value="6"/>
+      <parameter name="RingRadiusOuter" value="38.000000"/>
+    </component>
+    <component type="DynamicNearestNeighborTracking">
+      <enabledinterval value="1"/>
+      <parameter name="ColorSimilarityThreshold" value="1.000000"/>
+      <parameter name="FrameKillThreshold" value="1000.000000"/>
+      <parameter name="MaxDistance" value="50.000000"/>
+      <parameter name="MaxNumber" value="10"/>
+      <parameter name="MinNewTrackDistance" value="98.000000"/>
+      <parameter name="TrackDistanceKillThreshold" value="100"/>
+    </component>
+    <component type="KalmanFilterTrack">
+      <enabledinterval value="1"/>
+      <parameter name="WindowSize" value="100"/>
+    </component>
+    <component type="TrackSmoothing">
+      <enabledinterval value="0"/>
+    </component>
+    <component type="OutputFileAVI">
+      <enabledinterval value="0"/>
+      <parameter name="Codec" value="DIV3"/>
+      <parameter name="File" value="D:\OwnClouds\Yndal\Thesis\SwisTrack\161002-184135 - output.avi"/>
+      <parameter name="FileTitle" value="D:\OwnClouds\Yndal\Thesis\SwisTrack\output_st.avi"/>
+      <parameter name="FrameBufferCount" value="50"/>
+      <parameter name="FrameRate" value=""/>
+      <parameter name="InputChannel" value="color"/>
+      <parameter name="InputImage" value="1"/>
+    </component>
+    <component type="OutputImageOverlayColor">
+      <enabledinterval value="0"/>
+      <parameter name="File" value="D:\OwnClouds\Yndal\Thesis\SwisTrack\Untitled.png"/>
+      <parameter name="Mode" value="addition"/>
+      <parameter name="ResetImage" value="false"/>
+    </component>
+    <component type="OutputFile">
+      <enabledinterval value="1"/>
+      <parameter name="FileNamePrefix" value="161205-155640"/>
+    </component>
+  </components>
+  <server>
+    <port>3000</port>
+  </server>
+</swistrack>
